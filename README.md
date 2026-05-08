@@ -97,7 +97,7 @@ The project demonstrates end-to-end full-stack development: a **Next.js** fronte
 
 ### Step 1 — Clone the repository
 ```bash
-git clone <repo-url>
+git clone https://github.com/IrushaChamalka/CRM.git
 cd "intern project"
 ```
 
@@ -110,12 +110,12 @@ cd backend
 npm install
 ```
 
-Create `/backend/.env` (a pre-filled file is already included):
+Create `/backend/.env` 
 ```env
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/crm_leads
-JWT_SECRET=crm_jwt_secret_key_2026
-FRONTEND_URL=http://localhost:3000
+PORT=Add port needed to run backend
+MONGODB_URI=< URL from mongodb atlas >
+JWT_SECRET=Add new jwt secret key
+FRONTEND_URL=http://localhost:{port}
 ```
 
 Seed the database with sample data:
@@ -126,7 +126,7 @@ npm run seed
 Start the backend dev server:
 ```bash
 npm run dev
-# Runs on http://localhost:5000 (with --watch hot-reload)
+
 ```
 
 ---
@@ -138,24 +138,23 @@ cd ../frontend
 npm install
 ```
 
-Create `/frontend/.env.local` (a pre-filled file is already included):
+Create `/frontend/.env.local` 
 ```env
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+NEXT_PUBLIC_API_URL=http://localhost:{port}/api
 ```
 
 Start the frontend dev server:
 ```bash
 npm run dev
-# Runs on http://localhost:3000
 ```
 
 ---
 
 ### Step 4 — Open the app
 
-Visit **[http://localhost:3000](http://localhost:3000)** and log in with the [test credentials](#-test-login-credentials) below.
+Visit **[http://localhost:port](http://localhost:port)** and log in with the [test credentials](#-test-login-credentials) below.
 
-> **Health check:** `GET http://localhost:5000/api/health` returns `{ "status": "ok" }` when the backend is running correctly.
+> **Health check:** `GET http://localhost:port/api/health` returns `{ "status": "ok" }` when the backend is running correctly.
 
 ---
 
@@ -165,16 +164,16 @@ Visit **[http://localhost:3000](http://localhost:3000)** and log in with the [te
 
 | Variable       | Description                          | Default Value                         |
 |----------------|--------------------------------------|---------------------------------------|
-| `PORT`         | Express server port                  | `5000`                                |
-| `MONGODB_URI`  | MongoDB connection string            | `mongodb://localhost:27017/crm_leads` |
-| `JWT_SECRET`   | Secret key used to sign JWT tokens   | `crm_jwt_secret_key_2026`             |
-| `FRONTEND_URL` | Allowed CORS origin (frontend URL)   | `http://localhost:3000`               |
+| `PORT`         | Express server port                  | `PORT number`                                |
+| `MONGODB_URI`  | MongoDB connection string            | `<Mongodb atlas url>` |
+| `JWT_SECRET`   | Secret key used to sign JWT tokens   | `Add new jwt secret key`             |
+| `FRONTEND_URL` | Allowed CORS origin (frontend URL)   | `http://localhost:PORT`               |
 
 ### Frontend — `/frontend/.env.local`
 
 | Variable              | Description              | Default Value                 |
 |-----------------------|--------------------------|-------------------------------|
-| `NEXT_PUBLIC_API_URL` | Base URL for the REST API | `http://localhost:5000/api`  |
+| `NEXT_PUBLIC_API_URL` | Base URL for the REST API | `http://localhost:PORT/api`  |
 
 ---
 
@@ -331,4 +330,3 @@ Combined a pie chart (leads by source) and a horizontal bar chart (stage breakdo
 
 ---
 
-*Built as part of an internship project — May 2026*
